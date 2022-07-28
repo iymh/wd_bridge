@@ -20,16 +20,16 @@ set -ex
 export REGISTRY=${REGISTRY:-icr.io/codeengine}
 
 # Create the app
-ibmcloud ce app create -n wdb --image ${REGISTRY}/wdb
+ibmcloud ce app create -n wdb --image ${REGISTRY}/wd_bridge
 
 # Get the URL of the app for later use
-URL=$(ibmcloud ce app get -n wdb -o url)
+URL=$(ibmcloud ce app get -n wd_bridge -o url)
 
 # Now call it
 curl -fs $URL | tee out
 [[ "${PIPESTATUS[0]}" == "0" ]]
 
-if ! [[ "$(cat out)" == "Hello World" ]]; then
+if ! [[ "$(cat out)" == "watson discovery bridge!" ]]; then
   echo "Unexpected output"
   exit 1
 fi
