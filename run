@@ -20,10 +20,10 @@ set -ex
 export REGISTRY=${REGISTRY:-icr.io/codeengine}
 
 # Create the app
-ibmcloud ce app create -n hello --image ${REGISTRY}/hello
+ibmcloud ce app create -n wdb --image ${REGISTRY}/wdb
 
 # Get the URL of the app for later use
-URL=$(ibmcloud ce app get -n hello -o url)
+URL=$(ibmcloud ce app get -n wdb -o url)
 
 # Now call it
 curl -fs $URL | tee out
