@@ -1,14 +1,3 @@
-// const http = require('http');
-
-// http.createServer(function (request, response) {
-//    target = process.env.TARGET ? process.env.TARGET : 'World' ;
-//    msg = process.env.MSG ? process.env.MSG : 'Hello ' + target + '\n';
-//    response.writeHead(200, {'Content-Type': 'text/plain'});
-//    response.end(msg);
-// }).listen(8080);
-
-// console.log('Server running at http://0.0.0.0:8080/');
-
 const AUTHINFO = {
    username:"test",
    password:"test"
@@ -71,6 +60,6 @@ const port = process.env.PORT || 8080;
 server.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log('Server running on port: %d', port);
-  console.log('process.env: ', process.env);
+//   console.log('process.env: ', process.env);
 });
 
