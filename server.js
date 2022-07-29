@@ -9,9 +9,6 @@
 
 // console.log('Server running at http://0.0.0.0:8080/');
 
-const API_BASE_URL = "https://api.jp-tok.discovery.watson.cloud.ibm.com/instances/ed0733bb-df6d-4bdc-9821-2cecf6ee6870";
-const API_KEY = "KqPhyLs6ijCxz0oA0Aqi09TgQxKJ9EmTmZeP20IYM-tE";
-
 const AUTHINFO = {
    username:"test",
    password:"test"
@@ -53,10 +50,10 @@ server
       const discovery = new DiscoveryV2({
          version: '{version}',
          authenticator: new IamAuthenticator({
-            apikey: API_KEY,
+            apikey: process.env.API_KEY,
          }),
          version: '2020-08-30',
-         serviceUrl: API_BASE_URL,
+         serviceUrl: process.env.API_BASE_URL,
       });
 
       discovery.query(body)
@@ -74,5 +71,6 @@ const port = process.env.PORT || 8080;
 server.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log('Server running on port: %d', port);
+  console.log('process.env: ', process.env);
 });
 
