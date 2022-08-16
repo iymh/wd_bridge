@@ -6,6 +6,7 @@ const AUTHINFO = {
 const express = require('express');
 const bodyParser = require('body-parser');
 const basicAuth = require('basic-auth-connect');
+const cors = require('cors');
 
 const DiscoveryV2 = require('ibm-watson/discovery/v2');
 const { IamAuthenticator } =require('ibm-watson/auth');
@@ -16,6 +17,9 @@ server
    .use(bodyParser.urlencoded({
      extended: false
    }))
+
+   // CORS
+   .use(cors())
 
    // Basic Auth
    .use(basicAuth(
@@ -56,7 +60,7 @@ server
          });
    });
 
-const port = process.env.PORT || 443;
+const port = process.env.PORT || 8080;
 server.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log('Server running on port: %d', port);
