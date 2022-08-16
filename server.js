@@ -56,7 +56,7 @@ server
          });
    });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 443;
 server.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log('Server running on port: %d', port);
